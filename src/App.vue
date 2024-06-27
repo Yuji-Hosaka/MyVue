@@ -29,17 +29,20 @@ const instructor = reactive({
 
 const items = reactive([ref(1), ref(2), ref(3)])
 items.reverse()
-// const courseInfo = {
-//   section: ref(10),
-//   language: 'Japanese'
-// }
+const courseInfo = {
+  section: ref(10),
+  language: 'Japanese'
+}
 
-instructor.nationality = '???'
-console.log(instructor.name)
-console.log(info.value.students)
-console.log(instructor.email)
-console.log(items[0])
-console.log(items[0].value)
+const sections = courseInfo.section.value
+console.log(sections)
+
+// instructor.nationality = '???'
+// console.log(instructor.name)
+// console.log(info.value.students)
+// console.log(instructor.email)
+// console.log(items[0])
+// console.log(items[0].value)
 // console.log(courseInfo.section.value)
 // console.log(courseInfo.language)
 </script>
@@ -54,8 +57,9 @@ console.log(items[0].value)
   <h2>Instructor nationality: {{ instructor.nationality }}</h2>
   <h2>Instructor sns twitter: {{ instructor.sns.twitter }}</h2>
   <h2>Instructor email: {{ instructor.email }}</h2>
-  <!-- <h2>Instructor sections: {{ courseInfo.section.value + 111 }}</h2>
-  <h2>Instructor language: {{ courseInfo.language }}</h2> -->
+  <!-- <h2>Instructor sections: {{ courseInfo.section }}</h2>  -->
+  <h2>Instructor sections: {{ sections + 102 }}</h2>
+  <h2>Instructor language: {{ courseInfo.language }}</h2>
 
   <h1 class="ketsu-ron">結論</h1>
   <h2>
