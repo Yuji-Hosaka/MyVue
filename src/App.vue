@@ -9,6 +9,7 @@ function increment() {
   info.value.students += 1
   instructor.nationality = 'Japanese'
   instructor.sns.twitter = '@__yoshipi__@'
+  instructor.email = 'info@example.com'
 }
 
 const info = ref({
@@ -22,12 +23,25 @@ const instructor = reactive({
   sns: {
     twitter: '@__yoshipi__',
     youtube: '@yoshipi'
-  }
+  },
+  email: ref('yoshipi@mail.com')
 })
+
+const items = reactive([ref(1), ref(2), ref(3)])
+items.reverse()
+// const courseInfo = {
+//   section: ref(10),
+//   language: 'Japanese'
+// }
 
 instructor.nationality = '???'
 console.log(instructor.name)
 console.log(info.value.students)
+console.log(instructor.email)
+console.log(items[0])
+console.log(items[0].value)
+// console.log(courseInfo.section.value)
+// console.log(courseInfo.language)
 </script>
 
 <template>
@@ -39,6 +53,31 @@ console.log(info.value.students)
   <h2>Instructor age: {{ instructor.age }}</h2>
   <h2>Instructor nationality: {{ instructor.nationality }}</h2>
   <h2>Instructor sns twitter: {{ instructor.sns.twitter }}</h2>
+  <h2>Instructor email: {{ instructor.email }}</h2>
+  <!-- <h2>Instructor sections: {{ courseInfo.section.value + 111 }}</h2>
+  <h2>Instructor language: {{ courseInfo.language }}</h2> -->
+
+  <h1 class="ketsu-ron">結論</h1>
+  <h2>
+    オブジェクトをリアクティブにしたい場合レフ関数とリアクティブ関数、どっち使ったらいいのか？
+  </h2>
+  <h2 class="kotae">
+    公式のドキュメントでは基本的にはレフ関数を使いましょうということがお勧めされています。
+    <br />
+    なので、リアクティブ関数は使わずに普通の値もオブジェクトも基本的にはレフ関数一つでデータをリアクティブにすること。
+    <br />
+    <br />
+    レフオブジェクトがリアクティブオブジェクトの中ではなくて普通のオブジェクトの中にあった場合のテンプレート内での.valueの動きについても軽く見ていく。
+  </h2>
 </template>
 
-<style></style>
+<style>
+.ketsu-ron {
+  background-color: red;
+  color: white;
+}
+
+.kotae {
+  color: green;
+}
+</style>
